@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sproto Gremlins</title>
+  <style>
+    /* CSS Styles */
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #FFDB58;
+      font-family: Comic Sans MS;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      flex-grow: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #FF0000;
+      color: #FFFFFF;
+    }
+
+    h1 {
+      color: #003399;
+      text-decoration: underline;
+    }
+
+    h2 {
+      color: #FF0000;
+    }
+
+    p {
+      color: #0000FF;
+    }
+
+    .blink {
+      animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .banner-ad-container {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #FF0000;
+      color: #FFFFFF;
+      padding: 10px;
+      text-align: center;
+      z-index: 9999;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+
+    .banner-ad-container img {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: #FFFFFF;
+      cursor: pointer;
+    }
+
+    /* Responsive Styles */
+    @media only screen and (max-width: 768px) {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+  <script>
+    // JavaScript annoying banner ads
+    function showBannerAds() {
+      var bannerAds = document.getElementsByClassName("banner-ad-container");
+      for (var i = 0; i < bannerAds.length; i++) {
+        var randomTop = Math.random() * 100;
+        var randomLeft = Math.random() * 100;
+        bannerAds[i].style.top = randomTop + '%';
+        bannerAds[i].style.left = randomLeft + '%';
+        bannerAds[i].style.display = "block";
+      }
+    }
+
+    function closeBannerAd(element) {
+      var bannerAdContainer = element.parentElement;
+      bannerAdContainer.style.display = 'none';
+    }
+  </script>
+</head>
+<body onload="showBannerAds()">
+  <div class="container">
+    <h1>Sproto Gremlins</h1>
+
+    <h2>Welcome to the World of Gremlins!</h2>
+
+    <p>Are you ready to unleash the power of the Gremlins?</p>
+
+    <img src="gremlin.jpeg" alt="Gremlin" style="display: block; margin: 0 auto;">
+
+ <h2>About Sproto Gremlins</h2>
+<p>Welcome to the world of Sproto Gremlins, where chaos meets creativity in the crypto realm. Our mischievous Gremlins are here to bring excitement, laughter, and a touch of madness to the digital space.</p>
+
+<h2>Tokenomics</h2>
+<p>Sproto Gremlins follows an old-school tax scheme that's both timeless and groovy:</p>
+<ul>
+  <li>1% of every transaction is dedicated to our misfit Gremlins' secret stash, used to acquire valuable $BITCOIN tokens. We're stacking those digital treasures faster than a kid on Epstein island</li>
+  <li>Another 1% is allocated to our relentless marketing efforts. We're spreading the word about Sproto Gremlins with cunning strategies and effortless charm. Brace yourself for a marketing storm like no other!</li>
+</ul>
+
+
+    <h2>Meet the Gremlins</h2>
+    <p>Get to know some of the mischievous Gremlins that make up our vibrant community:</p>
+    <ul>
+      <li><strong>Giggles</strong>: The prankster who loves to laugh and spread laughter wherever it goes.</li>
+      <li><strong>Zapster</strong>: The electric Gremlin who can zap its enemies with lightning-fast trades.</li>
+      <li><strong>Fuzzball</strong>: The fluffy and cuddly Gremlin who can wrap you in warmth and fuzziness.</li>
+    </ul>
+
+    <h2>Contact Us</h2>
+<p>If you have any questions, need support, or just want to dive deeper into the Gremlin madness, feel free to reach out to us:</p>
+<ul>
+  <li>Email: gremlins@sproto.com </li>
+  <li>Phone: 123-456-GREMLIN </li>
+  <li><a href="https://twitter.com/SprotoGremlins" target="_blank" rel="noopener noreferrer">Twitter</a>: Follow us for the latest updates, memes, and Gremlin shenanigans!</li>
+  <li><a href="https://t.me/SprotoGremlins" target="_blank" rel="noopener noreferrer">Telegram</a>: Join our Telegram group for lively discussions, news, and exclusive Gremlin content!</li>
+  <li><a href="https://chart.sproto.com" target="_blank" rel="noopener noreferrer">Chart</a>: Check out the live chart to track the Gremlin madness in real time!</li>
+  <li><a href="https://buy.sproto.com" target="_blank" rel="noopener noreferrer">Buy Gremlins</a>: Get your own mischievous $Gremlins and join the fun!</li>
+</ul>
+
+
+  <!-- Banner Ad 1 -->
+  <div class="banner-ad-container">
+    <img src="banner1.jpg" alt="Banner Image 1">
+    <span class="close-button" onclick="closeBannerAd(this)">X</span>
+  </div>
+
+  <!-- Banner Ad 2 -->
+  <div class="banner-ad-container">
+    <img src="banner2.gif" alt="Banner Image 2">
+    <span class="close-button" onclick="closeBannerAd(this)">X</span>
+  </div>
+
+  <!-- Banner Ad 3 -->
+  <div class="banner-ad-container">
+    <img src="banner3.gif" alt="Banner Image 3">
+    <span class="close-button" onclick="closeBannerAd(this)">X</span>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Sproto Gremlins. All rights reserved. Created with love and mischief.</p>
+  </footer>
+</body>
+</html>
