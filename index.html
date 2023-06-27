@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <title>Sproto Gremlins</title>
   <style>
-    /* CSS Styles */
+    @font-face {
+      font-family: 'Comic Sans';
+      src: url('ComicSansMS3.ttf') format('truetype');
+    }
+
     html, body {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       background-color: #FFDB58;
-      font-family: Comic Sans MS;
+      font-family: 'Comic Sans', cursive;
       margin: 0;
       padding: 0;
     }
@@ -75,13 +79,46 @@
       width: 100%;
       max-width: 300px;
     }
-
+    cursor: url(cur1056.ani), auto;
     .close-button {
       position: absolute;
       top: 5px;
       right: 5px;
       color: #FFFFFF;
       cursor: pointer;
+    }
+
+    .floating-image {
+      position: absolute;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(20px, 20px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    /* Visitor Counter Styles */
+    .visitor-count {
+      margin-top: 20px;
+      color: #FF0000;
+      font-size: 24px;
+    }
+
+    /* Animated Cursors */
+    .cursor-pointer {
+      cursor: url('pointer.gif'), auto;
+    }
+
+    .cursor-text {
+      cursor: url('text.gif'), auto;
     }
 
     /* Responsive Styles */
@@ -108,9 +145,17 @@
       var bannerAdContainer = element.parentElement;
       bannerAdContainer.style.display = 'none';
     }
+
+    // Visitor Counter
+    var visitorCount = 152; // Starting visitor count
+
+    function incrementVisitorCount() {
+      visitorCount++; // Increment the visitor count
+      document.getElementById("visitor-count").textContent = visitorCount; // Update the count on the webpage
+    }
   </script>
 </head>
-<body onload="showBannerAds()">
+<body onload="showBannerAds()" onclick="incrementVisitorCount()">
   <div class="container">
     <h1>Sproto Gremlins</h1>
 
@@ -120,16 +165,15 @@
 
     <img src="gremlin.jpeg" alt="Gremlin" style="display: block; margin: 0 auto;">
 
- <h2>About Sproto Gremlins</h2>
-<p>Welcome to the world of Sproto Gremlins, where chaos meets creativity in the crypto realm. Our mischievous Gremlins are here to bring excitement, laughter, and a touch of madness to the digital space.</p>
+    <h2>About Sproto Gremlins</h2>
+    <p>Welcome to the world of Sproto Gremlins, where chaos meets creativity in the crypto realm. Our mischievous Gremlins are here to bring excitement, laughter, and a touch of madness to the digital space.</p>
 
-<h2>Tokenomics</h2>
-<p>Sproto Gremlins follows an old-school tax scheme that's both timeless and groovy:</p>
-<ul>
-  <li>1% of every transaction is dedicated to our misfit Gremlins' secret stash, used to acquire valuable $BITCOIN tokens. We're stacking those digital treasures faster than a kid on Epstein island</li>
-  <li>Another 1% is allocated to our relentless marketing efforts. We're spreading the word about Sproto Gremlins with cunning strategies and effortless charm. Brace yourself for a marketing storm like no other!</li>
-</ul>
-
+    <h2>Tokenomics</h2>
+    <p>Sproto Gremlins follows an old-school tax scheme that's both timeless and groovy:</p>
+    <ul>
+      <li>1% of every transaction is dedicated to our misfit Gremlins' secret stash, used to acquire valuable $BITCOIN tokens. We're stacking those digital treasures faster than a kid on Epstein island</li>
+      <li>Another 1% is allocated to our relentless marketing efforts. We're spreading the word about Sproto Gremlins with cunning strategies and effortless charm. Brace yourself for a marketing storm like no other!</li>
+    </ul>
 
     <h2>Meet the Gremlins</h2>
     <p>Get to know some of the mischievous Gremlins that make up our vibrant community:</p>
@@ -140,37 +184,71 @@
     </ul>
 
     <h2>Contact Us</h2>
-<p>If you have any questions, need support, or just want to dive deeper into the Gremlin madness, feel free to reach out to us:</p>
-<ul>
-  <li>Email: gremlins@sproto.com </li>
-  <li>Phone: 123-456-GREMLIN </li>
-  <li><a href="https://twitter.com/SprotoGremlin" target="_blank" rel="noopener noreferrer">Twitter</a>: Follow us for the latest updates, memes, and Gremlin shenanigans!</li>
-  <li><a href="https://t.me/SprotoGremlin" target="_blank" rel="noopener noreferrer">Telegram</a>: Join our Telegram group for lively discussions, news, and exclusive Gremlin content!</li>
-  <li><a href="https://chart.sproto.com" target="_blank" rel="noopener noreferrer">Chart</a>: Check out the live chart to track the Gremlin madness in real time!</li>
-  <li><a href="https://buy.sproto.com" target="_blank" rel="noopener noreferrer">Buy Gremlins</a>: Get your own mischievous $Gremlins and join the fun!</li>
-</ul>
+    <p>If you have any questions, need support, or just want to dive deeper into the Gremlin madness, feel free to reach out to us:</p>
+    <ul>
+      <li>Email: gremlins@sproto.com </li>
+      <li>Phone: 123-456-GREMLIN </li>
+      <li><a href="https://twitter.com/SprotoGremlin" target="_blank" rel="noopener noreferrer">Twitter</a>: Follow us for the latest updates, memes, and Gremlin shenanigans!</li>
+      <li><a href="https://t.me/SprotoGremlin" target="_blank" rel="noopener noreferrer">Telegram</a>: Join our Telegram group for lively discussions, news, and exclusive Gremlin content!</li>
+      <li><a href="https://chart.sproto.com" target="_blank" rel="noopener noreferrer">Chart</a>: Check out the live chart to track the Gremlin madness in real time!</li>
+      <li><a href="https://buy.sproto.com" target="_blank" rel="noopener noreferrer">Buy Gremlins</a>: Get your own mischievous $Gremlins and join the fun!</li>
+    </ul>
 
+    <!-- Floating Images -->
+    <img class="floating-image" src="banner1.jpg" alt="Floating Image 1" style="top: 30%; left: 30%;">
+    <img class="floating-image" src="banner2.gif" alt="Floating Image 2" style="top: 60%; left: 10%;">
+    <img class="floating-image" src="banner3.gif" alt="Floating Image 3" style="top: 70%; left: 50%;">
+    <img class="floating-image" src="banner4.gif" alt="Floating Image 4" style="top: 10%; left: 20%;">
+    <img class="floating-image" src="banner5.jpg" alt="Floating Image 5" style="top: 80%; left: 40%;">
 
-  <!-- Banner Ad 1 -->
-  <div class="banner-ad-container">
-    <img src="banner1.jpg" alt="Banner Image 1">
-    <span class="close-button" onclick="closeBannerAd(this)">X</span>
+    <!-- Banner Ad 1 -->
+    <div class="banner-ad-container">
+      <img src="banner1.jpg" alt="Banner Image 1">
+      <span class="close-button" onclick="closeBannerAd(this)">X</span>
+    </div>
+
+    <!-- Banner Ad 2 -->
+    <div class="banner-ad-container">
+      <img src="banner2.gif" alt="Banner Image 2">
+      <span class="close-button" onclick="closeBannerAd(this)">X</span>
+    </div>
+
+    <!-- Banner Ad 3 -->
+    <div class="banner-ad-container">
+      <img src="banner3.gif" alt="Banner Image 3">
+      <span class="close-button" onclick="closeBannerAd(this)">X</span>
+    </div>
+
+    <!-- Banner Ad 4 -->
+    <div class="banner-ad-container">
+      <img src="banner4.gif" alt="Banner Image 4">
+      <span class="close-button" onclick="closeBannerAd(this)">X</span>
+    </div>
+
+    <!-- Banner Ad 5 -->
+    <div class="banner-ad-container">
+      <img src="banner5.jpg" alt="Banner Image 5">
+      <span class="close-button" onclick="closeBannerAd(this)">X</span>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 Sproto Gremlins. All rights reserved. Created with love and mischief.</p>
+      <p>Visitor count: <span id="visitor-count">152</span></p>
+    </footer>
   </div>
 
-  <!-- Banner Ad 2 -->
-  <div class="banner-ad-container">
-    <img src="banner2.gif" alt="Banner Image 2">
-    <span class="close-button" onclick="closeBannerAd(this)">X</span>
-  </div>
+  <script>
+    function randomizeFloatingImages() {
+      var floatingImages = document.getElementsByClassName("floating-image");
+      for (var i = 0; i < floatingImages.length; i++) {
+        var randomTop = Math.random() * 100;
+        var randomLeft = Math.random() * 100;
+        floatingImages[i].style.top = randomTop + '%';
+        floatingImages[i].style.left = randomLeft + '%';
+      }
+    }
 
-  <!-- Banner Ad 3 -->
-  <div class="banner-ad-container">
-    <img src="banner3.gif" alt="Banner Image 3">
-    <span class="close-button" onclick="closeBannerAd(this)">X</span>
-  </div>
-
-  <footer>
-    <p>&copy; 2023 Sproto Gremlins. All rights reserved. Created with love and mischief.</p>
-  </footer>
+    randomizeFloatingImages();
+  </script>
 </body>
 </html>
