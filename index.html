@@ -165,9 +165,9 @@
     };
 
     function handleImageClick(event) {
-      var target = event.target;
-      alert("You clicked on the image: " + target.alt);
-    }
+    var target = event.target;
+    target.style.display = 'none';
+  }
   </script>
 </head>
 <body onclick="incrementVisitorCount()">
