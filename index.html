@@ -163,6 +163,11 @@
       showBannerAds();
       randomizeFloatingImages();
     };
+
+    function handleImageClick(event) {
+      var target = event.target;
+      alert("You clicked on the image: " + target.alt);
+    }
   </script>
 </head>
 <body onclick="incrementVisitorCount()">
@@ -173,7 +178,7 @@
 
     <p>Are you ready to unleash the power of the Gremlins?</p>
 
-    <img src="gremlin.jpeg" alt="Gremlin" style="display: block; margin: 0 auto;">
+    <img src="gremlin.jpeg" alt="Gremlin" style="display: block; margin: 0 auto;" onclick="handleImageClick(event)">
 
     <h2>About Sproto Gremlins</h2>
     <p>Welcome to the world of Sproto Gremlins, where chaos meets creativity in the crypto realm. Our mischievous Gremlins are here to bring excitement, laughter, and a touch of madness to the digital space.</p>
@@ -205,35 +210,35 @@
     </ul>
 
     <!-- Floating Images -->
-    <img class="floating-image" src="banner1.jpg" alt="Floating Image 1" style="top: 30%; left: 30%;">
-    <img class="floating-image" src="banner2.gif" alt="Floating Image 2" style="top: 60%; left: 10%;">
-    <img class="floating-image" src="banner3.gif" alt="Floating Image 3" style="top: 70%; left: 50%;">
-    <img class="floating-image" src="banner4.gif" alt="Floating Image 4" style="top: 10%; left: 20%;">
-    <img class="floating-image" src="banner5.jpg" alt="Floating Image 5" style="top: 80%; left: 40%;">
+    <img class="floating-image" src="banner1.jpg" alt="Floating Image 1" style="top: 30%; left: 30%;" onclick="handleImageClick(event)">
+    <img class="floating-image" src="banner2.gif" alt="Floating Image 2" style="top: 60%; left: 10%;" onclick="handleImageClick(event)">
+    <img class="floating-image" src="banner3.gif" alt="Floating Image 3" style="top: 70%; left: 50%;" onclick="handleImageClick(event)">
+    <img class="floating-image" src="banner4.gif" alt="Floating Image 4" style="top: 10%; left: 20%;" onclick="handleImageClick(event)">
+    <img class="floating-image" src="banner5.jpg" alt="Floating Image 5" style="top: 80%; left: 40%;" onclick="handleImageClick(event)">
 
     <!-- Banner Ads -->
     <div class="banner-ad-container">
-      <img src="banner1.jpg" alt="Banner Image 1">
+      <img src="banner1.jpg" alt="Banner Image 1" onclick="handleImageClick(event)">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
     <div class="banner-ad-container">
-      <img src="banner2.gif" alt="Banner Image 2">
+      <img src="banner2.gif" alt="Banner Image 2" onclick="handleImageClick(event)">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
     <div class="banner-ad-container">
-      <img src="banner3.gif" alt="Banner Image 3">
+      <img src="banner3.gif" alt="Banner Image 3" onclick="handleImageClick(event)">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
     <div class="banner-ad-container">
-      <img src="banner4.gif" alt="Banner Image 4">
+      <img src="banner4.gif" alt="Banner Image 4" onclick="handleImageClick(event)">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
     <div class="banner-ad-container">
-      <img src="banner5.jpg" alt="Banner Image 5">
+      <img src="banner5.jpg" alt="Banner Image 5" onclick="handleImageClick(event)">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
