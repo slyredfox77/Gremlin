@@ -79,7 +79,7 @@
       width: 100%;
       max-width: 300px;
     }
-    cursor: url(cur1056.ani), auto;
+
     .close-button {
       position: absolute;
       top: 5px;
@@ -105,14 +105,12 @@
       }
     }
 
-    /* Visitor Counter Styles */
     .visitor-count {
       margin-top: 20px;
       color: #FF0000;
       font-size: 24px;
     }
 
-    /* Animated Cursors */
     .cursor-pointer {
       cursor: url('pointer.gif'), auto;
     }
@@ -121,7 +119,6 @@
       cursor: url('text.gif'), auto;
     }
 
-    /* Responsive Styles */
     @media only screen and (max-width: 768px) {
       h1 {
         font-size: 24px;
@@ -129,7 +126,6 @@
     }
   </style>
   <script>
-    // JavaScript annoying banner ads
     function showBannerAds() {
       var bannerAds = document.getElementsByClassName("banner-ad-container");
       for (var i = 0; i < bannerAds.length; i++) {
@@ -137,7 +133,7 @@
         var randomLeft = Math.random() * 100;
         bannerAds[i].style.top = randomTop + '%';
         bannerAds[i].style.left = randomLeft + '%';
-        bannerAds[i].style.display = "block";
+        bannerAds[i].style.display = 'block';
       }
     }
 
@@ -146,16 +142,30 @@
       bannerAdContainer.style.display = 'none';
     }
 
-    // Visitor Counter
-    var visitorCount = 152; // Starting visitor count
+    var visitorCount = 152;
 
     function incrementVisitorCount() {
-      visitorCount++; // Increment the visitor count
-      document.getElementById("visitor-count").textContent = visitorCount; // Update the count on the webpage
+      visitorCount++;
+      document.getElementById("visitor-count").textContent = visitorCount;
     }
+
+    function randomizeFloatingImages() {
+      var floatingImages = document.getElementsByClassName("floating-image");
+      for (var i = 0; i < floatingImages.length; i++) {
+        var randomTop = Math.random() * 100;
+        var randomLeft = Math.random() * 100;
+        floatingImages[i].style.top = randomTop + '%';
+        floatingImages[i].style.left = randomLeft + '%';
+      }
+    }
+
+    window.onload = function() {
+      showBannerAds();
+      randomizeFloatingImages();
+    };
   </script>
 </head>
-<body onload="showBannerAds()" onclick="incrementVisitorCount()">
+<body onclick="incrementVisitorCount()">
   <div class="container">
     <h1>Sproto Gremlins</h1>
 
@@ -201,31 +211,27 @@
     <img class="floating-image" src="banner4.gif" alt="Floating Image 4" style="top: 10%; left: 20%;">
     <img class="floating-image" src="banner5.jpg" alt="Floating Image 5" style="top: 80%; left: 40%;">
 
-    <!-- Banner Ad 1 -->
+    <!-- Banner Ads -->
     <div class="banner-ad-container">
       <img src="banner1.jpg" alt="Banner Image 1">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
-    <!-- Banner Ad 2 -->
     <div class="banner-ad-container">
       <img src="banner2.gif" alt="Banner Image 2">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
-    <!-- Banner Ad 3 -->
     <div class="banner-ad-container">
       <img src="banner3.gif" alt="Banner Image 3">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
-    <!-- Banner Ad 4 -->
     <div class="banner-ad-container">
       <img src="banner4.gif" alt="Banner Image 4">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
 
-    <!-- Banner Ad 5 -->
     <div class="banner-ad-container">
       <img src="banner5.jpg" alt="Banner Image 5">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
@@ -238,16 +244,6 @@
   </div>
 
   <script>
-    function randomizeFloatingImages() {
-      var floatingImages = document.getElementsByClassName("floating-image");
-      for (var i = 0; i < floatingImages.length; i++) {
-        var randomTop = Math.random() * 100;
-        var randomLeft = Math.random() * 100;
-        floatingImages[i].style.top = randomTop + '%';
-        floatingImages[i].style.left = randomLeft + '%';
-      }
-    }
-
     randomizeFloatingImages();
   </script>
 </body>
