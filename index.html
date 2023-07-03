@@ -88,23 +88,6 @@
       cursor: pointer;
     }
 
-    .floating-image {
-      position: absolute;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translate(0, 0);
-      }
-      50% {
-        transform: translate(20px, 20px);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
-    }
-
     .visitor-count {
       margin-top: 20px;
       color: #FF0000;
@@ -124,8 +107,109 @@
         font-size: 24px;
       }
     }
+    
+    /* Added CSS rules for GIF animation */
+    .gif {
+      position: absolute;
+      z-index: 999;
+    }
   </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
+    $(document).ready(function() {
+  animateDiv($('.gif1'));
+  animateDiv($('.gif2'));
+  animateDiv($('.gif3'));
+  animateDiv($('.gif4'));
+  animateDiv($('.gif5'));
+  animateDiv($('.gif6'));
+  animateDiv($('.gif7'));
+  animateDiv($('.gif8'));
+  animateDiv($('.gif9'));
+  animateDiv($('.gif10'));
+  animateDiv($('.gif11'));
+  animateDiv($('.gif12'));
+  animateDiv($('.gif13'));
+  animateDiv($('.gif14'));
+  animateDiv($('.gif15'));
+  animateDiv($('.gif16'));
+  animateDiv($('.gif17'));
+  animateDiv($('.gif18'));
+  animateDiv($('.gif19'));
+  animateDiv($('.gif20'));
+  animateDiv($('.gif21'));
+  animateDiv($('.gif22'));
+  animateDiv($('.gif23'));
+  animateDiv($('.gif24'));
+  animateDiv($('.gif25'));
+  animateDiv($('.gif26'));
+  animateDiv($('.gif27'));
+  animateDiv($('.gif28'));
+  animateDiv($('.gif29'));
+  animateDiv($('.gif30'));
+  animateDiv($('.gif31'));
+  animateDiv($('.gif32'));
+  animateDiv($('.gif33'));
+  animateDiv($('.gif34'));
+  animateDiv($('.gif35'));
+  animateDiv($('.gif36'));
+  animateDiv($('.gif37'));
+  animateDiv($('.gif38'));
+  animateDiv($('.gif39'));
+  animateDiv($('.gif40'));
+  animateDiv($('.gif41'));
+  animateDiv($('.gif42'));
+  animateDiv($('.gif43'));
+  animateDiv($('.gif44'));
+  animateDiv($('.gif45'));
+  animateDiv($('.gif46'));
+  animateDiv($('.gif47'));
+  animateDiv($('.gif48'));
+  animateDiv($('.gif49'));
+  animateDiv($('.gif50'));
+  animateDiv($('.gif51'));
+  animateDiv($('.gif52'));
+  animateDiv($('.gif53'));
+  animateDiv($('.gif54'));
+  animateDiv($('.gif55'));
+  animateDiv($('.gif56'));
+  animateDiv($('.gif57'));
+  animateDiv($('.gif58'));
+  animateDiv($('.gif59'));
+  animateDiv($('.gif60'));
+});
+
+
+    function makeNewPosition($container) {
+      var h = $container.height() - 10;
+      var w = $container.width() - 10;
+      var nh = Math.floor(Math.random() * h);
+      var nw = Math.floor(Math.random() * w);
+      return [nh, nw];
+    }
+
+    function animateDiv($target) {
+      var newq = makeNewPosition($target.parent());
+      var oldq = $target.offset();
+      var speed = calcSpeed([oldq.top, oldq.left], newq);
+
+      $target.animate({
+        top: newq[0],
+        left: newq[1]
+      }, speed, function() {
+        animateDiv($target);
+      });
+    }
+
+    function calcSpeed(prev, next) {
+      var x = Math.abs(prev[1] - next[1]);
+      var y = Math.abs(prev[0] - next[0]);
+      var greatest = x > y ? x : y;
+      var speedModifier = 0.1;
+      var speed = Math.ceil(greatest / speedModifier);
+      return speed;
+    }
+
     function showBannerAds() {
       var bannerAds = document.getElementsByClassName("banner-ad-container");
       for (var i = 0; i < bannerAds.length; i++) {
@@ -149,25 +233,10 @@
       document.getElementById("visitor-count").textContent = visitorCount;
     }
 
-    function randomizeFloatingImages() {
-      var floatingImages = document.getElementsByClassName("floating-image");
-      for (var i = 0; i < floatingImages.length; i++) {
-        var randomTop = Math.random() * 100;
-        var randomLeft = Math.random() * 100;
-        floatingImages[i].style.top = randomTop + '%';
-        floatingImages[i].style.left = randomLeft + '%';
-      }
-    }
-
-    window.onload = function() {
-      showBannerAds();
-      randomizeFloatingImages();
-    };
-
     function handleImageClick(event) {
-    var target = event.target;
-    target.style.display = 'none';
-  }
+      var target = event.target;
+      target.style.display = 'none';
+    }
   </script>
 </head>
 <body onclick="incrementVisitorCount()">
@@ -209,14 +278,6 @@
       <li><a href="https://buy.sproto.com" target="_blank" rel="noopener noreferrer">Buy Gremlins</a>: Get your own mischievous $Gremlins and join the fun!</li>
     </ul>
 
-    <!-- Floating Images -->
-    <img class="floating-image" src="banner1.jpg" alt="Floating Image 1" style="top: 30%; left: 30%;" onclick="handleImageClick(event)">
-    <img class="floating-image" src="banner2.gif" alt="Floating Image 2" style="top: 60%; left: 10%;" onclick="handleImageClick(event)">
-    <img class="floating-image" src="banner3.gif" alt="Floating Image 3" style="top: 70%; left: 50%;" onclick="handleImageClick(event)">
-    <img class="floating-image" src="banner4.gif" alt="Floating Image 4" style="top: 10%; left: 20%;" onclick="handleImageClick(event)">
-    <img class="floating-image" src="banner5.jpg" alt="Floating Image 5" style="top: 80%; left: 40%;" onclick="handleImageClick(event)">
-    <img class="floating-image" src="banner6.png" alt="Floating Image 5" style="top: 80%; left: 40%;" onclick="handleImageClick(event)">
-
     <!-- Banner Ads -->
     <div class="banner-ad-container">
       <img src="banner1.jpg" alt="Banner Image 1" onclick="handleImageClick(event)">
@@ -242,15 +303,196 @@
       <img src="banner5.jpg" alt="Banner Image 5" onclick="handleImageClick(event)">
       <span class="close-button" onclick="closeBannerAd(this)">X</span>
     </div>
+    <div id="container">
+  <div class="gif gif1">
+    <img src="sproto.png" alt="GIF 1">
+  </div>
+  <div class="gif gif2">
+    <img src="sproto1.png" alt="GIF 2">
+  </div>
+  <div class="gif gif3">
+    <img src="sproto2.png" alt="GIF 3">
+  </div>
+  <div class="gif gif4">
+    <img src="sproto3.png" alt="GIF 4">
+  </div>
+  <div class="gif gif5">
+    <img src="sproto4.png" alt="GIF 5">
+  </div>
+  <div class="gif gif6">
+    <img src="sproto5.png" alt="GIF 6">
+  </div>
+  <div class="gif gif7">
+    <img src="sproto6.png" alt="GIF 7">
+  </div>
+  <div class="gif gif8">
+    <img src="sproto7.png" alt="GIF 8">
+  </div>
+  <div class="gif gif9">
+    <img src="sproto8.png" alt="GIF 9">
+  </div>
+  <div class="gif gif10">
+    <img src="sproto9.png" alt="GIF 10">
+  </div>
+  <div class="gif gif11">
+    <img src="sproto10.png" alt="GIF 11">
+  </div>
+  <div class="gif gif12">
+    <img src="sproto11.png" alt="GIF 12">
+  </div>
+  <div class="gif gif13">
+    <img src="sproto12.png" alt="GIF 13">
+  </div>
+  <div class="gif gif14">
+    <img src="sproto13.png" alt="GIF 14">
+  </div>
+  <div class="gif gif15">
+    <img src="sproto14.png" alt="GIF 15">
+  </div>
+  <div class="gif gif16">
+    <img src="sproto15.png" alt="GIF 16">
+  </div>
+  <div class="gif gif17">
+    <img src="sproto16.png" alt="GIF 17">
+  </div>
+  <div class="gif gif18">
+    <img src="sproto17.png" alt="GIF 18">
+  </div>
+  <div class="gif gif19">
+    <img src="sproto18.png" alt="GIF 19">
+  </div>
+  <div class="gif gif20">
+    <img src="sproto19.png" alt="GIF 20">
+  </div>
+  <div class="gif gif21">
+    <img src="sproto20.png" alt="GIF 21">
+  </div>
+  <div class="gif gif22">
+    <img src="sproto21.png" alt="GIF 22">
+  </div>
+  <div class="gif gif23">
+    <img src="sproto22.png" alt="GIF 23">
+  </div>
+  <div class="gif gif24">
+    <img src="sproto23.png" alt="GIF 24">
+  </div>
+  <div class="gif gif25">
+    <img src="sproto24.png" alt="GIF 25">
+  </div>
+  <div class="gif gif26">
+    <img src="sproto25.png" alt="GIF 26">
+  </div>
+  <div class="gif gif27">
+    <img src="sproto26.png" alt="GIF 27">
+  </div>
+  <div class="gif gif28">
+    <img src="sproto27.png" alt="GIF 28">
+  </div>
+  <div class="gif gif29">
+    <img src="sproto28.png" alt="GIF 29">
+  </div>
+  <div class="gif gif30">
+    <img src="sproto29.png" alt="GIF 30">
+  </div>
+  <div class="gif gif31">
+    <img src="sproto30.png" alt="GIF 31">
+  </div>
+  <div class="gif gif32">
+    <img src="sproto31.png" alt="GIF 32">
+  </div>
+  <div class="gif gif33">
+    <img src="sproto32.png" alt="GIF 33">
+  </div>
+  <div class="gif gif34">
+    <img src="sproto33.png" alt="GIF 34">
+  </div>
+  <div class="gif gif35">
+    <img src="sproto34.png" alt="GIF 35">
+  </div>
+  <div class="gif gif36">
+    <img src="sproto35.png" alt="GIF 36">
+  </div>
+  <div class="gif gif37">
+    <img src="sproto36.png" alt="GIF 37">
+  </div>
+  <div class="gif gif38">
+    <img src="sproto37.png" alt="GIF 38">
+  </div>
+  <div class="gif gif39">
+    <img src="sproto38.png" alt="GIF 39">
+  </div>
+  <div class="gif gif40">
+    <img src="sproto39.png" alt="GIF 40">
+  </div>
+  <div class="gif gif41">
+    <img src="sproto40.png" alt="GIF 41">
+  </div>
+  <div class="gif gif42">
+    <img src="sproto41.png" alt="GIF 42">
+  </div>
+  <div class="gif gif43">
+    <img src="sproto42.png" alt="GIF 43">
+  </div>
+  <div class="gif gif44">
+    <img src="sproto43.png" alt="GIF 44">
+  </div>
+  <div class="gif gif45">
+    <img src="sproto44.png" alt="GIF 45">
+  </div>
+  <div class="gif gif46">
+    <img src="sproto45.png" alt="GIF 46">
+  </div>
+  <div class="gif gif47">
+    <img src="sproto46.png" alt="GIF 47">
+  </div>
+  <div class="gif gif48">
+    <img src="sproto47.png" alt="GIF 48">
+  </div>
+  <div class="gif gif49">
+    <img src="sproto48.png" alt="GIF 49">
+  </div>
+  <div class="gif gif50">
+    <img src="sproto49.png" alt="GIF 50">
+  </div>
+  <div class="gif gif51">
+    <img src="sproto50.png" alt="GIF 51">
+  </div>
+  <div class="gif gif52">
+    <img src="sproto51.png" alt="GIF 52">
+  </div>
+  <div class="gif gif53">
+    <img src="sproto52.png" alt="GIF 53">
+  </div>
+  <div class="gif gif54">
+    <img src="sproto53.png" alt="GIF 54">
+  </div>
+  <div class="gif gif55">
+    <img src="sproto54.png" alt="GIF 55">
+  </div>
+  <div class="gif gif56">
+    <img src="sproto55.png" alt="GIF 56">
+  </div>
+  <div class="gif gif57">
+    <img src="sproto56.png" alt="GIF 57">
+  </div>
+  <div class="gif gif58">
+    <img src="sproto57.png" alt="GIF 58">
+  </div>
+  <div class="gif gif59">
+    <img src="sproto58.png" alt="GIF 59">
+  </div>
+  <div class="gif gif60">
+    <img src="sproto59.png" alt="GIF 60">
+  </div>
+</div>
 
-    <footer>
-      <p>&copy; 2023 Sproto Gremlins. All rights reserved. Created with love and mischief.</p>
-      <p>Visitor count: <span id="visitor-count">152</span></p>
-    </footer>
+    </div>
+
+    <p class="visitor-count">Total Visitors: <span id="visitor-count">152</span></p>
   </div>
 
-  <script>
-    randomizeFloatingImages();
-  </script>
+  <footer>
+    &copy; 2023 Sproto Gremlins. All rights reserved.
+  </footer>
 </body>
 </html>
